@@ -21,14 +21,15 @@ const uniqueOnes = arr => {
   // TODO - write a function which removes all non-unique elemenets from an array
   const uniArr = [];
   arrLen = arr.length;
-  for(let i = 0; i < arrLen, i++) {
+  for(let i = 0; i < arrLen; i++) {
     if(uniArr.includes(arr[i]) <= 0 ){
       uniArr.push(arr[i]);
     }
   }
+  return uniArr;
 };
 
-console.log([1,3,5,1,3])
+console.log(uniqueOnes([1,3,5,1,3]));
 
 const factorial = num => {
   // TODO - write a function which returns the factorial of a positive integer
@@ -59,16 +60,36 @@ const zip = (arr1, arr2) => {
   return zipArr;
 };
 
-console.log(zip[1,2,3], [1,2,3]);
+console.log(zip([1,2,3], [1,2,3]));
 
-const unzip = (arr1, arr2) => {
+const unzip = (arr) => {
   // TODO - Write a function which does the opposite of `zip()`
+  const arr1 = [], arr2 = [];
+  for(let i = 0 ; i < arr.length; i++) {
+    arr1.push(arr[i][0]);
+    arr2.push(arr[i][1]);
+  }
+  return([arr1, arr2]);
 };
+
+console.log(unzip([ [ 1, 1 ], [ 2, 2 ], [ 3, 3 ] ]));
 
 const shiftRight = (str, num) => {
   // TODO - write a function which shifts a string `num` characters to the right
   // Example = shiftThree("Hello") === "lloHe"
+  let counter = num - 1;
+  const strArr = [];
+  for(let i = 0; i < str.length; i++){
+    strArr.push(str[counter]);
+    counter++;
+    if(counter === str.length) {
+      counter = 0;
+    }
+  }
+  return strArr.join("");  
 };
+
+console.log(shiftRight("Hello",3));
 
 const announceDate = () => {
   // TODO - write a function which returns the current date in the following format:

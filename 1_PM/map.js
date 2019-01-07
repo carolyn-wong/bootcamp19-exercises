@@ -8,11 +8,13 @@ const triple = (el) => {
 };
 
 Array.prototype.map = function(fun) {
+
   const newArr = [];
   this.forEach(el => {
       newArr.push(fun(el));
   });
   return newArr;
+
 };
 
 console.log(arr.map(triple));

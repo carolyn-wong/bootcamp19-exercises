@@ -8,6 +8,7 @@ const multOf7 = el => {
 };
 
 Array.prototype.filter = function(fun) {
+
   const newArr = [];
   this.forEach(el => {
     if(fun(el)) {
@@ -15,6 +16,7 @@ Array.prototype.filter = function(fun) {
     }
   });
   return newArr;
+
 };
 
 const newArr = arr.filter(multOf7);

@@ -16,5 +16,6 @@ Array.prototype.reduce = function(fun, init) {
     return totalVal;
 };
 
+
 const total = arr.reduce(sum, 0);
 console.log(total);

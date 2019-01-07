@@ -4,11 +4,17 @@
 const arr = [7, 8, 15, 14, 13, 70, 44, 35, 88, 77, false, "7", "hi", null];
 
 const multOf7 = el => {
-  // TODO
+  return(typeof(el)==='number' && !(el % 7));
 };
 
-Array.prototype.filter = () => {
-  // TODO
+Array.prototype.filter = function(fun) {
+  const newArr = [];
+  this.forEach(el => {
+    if(fun(el)) {
+      newArr.push(el);
+    }
+  });
+  return newArr;
 };
 
 const newArr = arr.filter(multOf7);

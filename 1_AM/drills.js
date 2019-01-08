@@ -94,7 +94,56 @@ console.log(shiftRight("Hello",3));
 const announceDate = () => {
   // TODO - write a function which returns the current date in the following format:
   // "Today's date is January 7th, 2016. It is eleven thirty-seven in the morning."
+  let months = [ "January", "February", "March", "April", "May", "June", 
+               "July", "August", "September", "October", "November", "December" ];
+  function triConvert(num){
+    var ones = new Array('', ' one', ' two', ' three', ' four', ' five', ' six', ' seven', ' eight', ' nine', ' ten', ' eleven', ' twelve', ' thirteen', ' fourteen', ' fifteen', ' sixteen', ' seventeen', ' eighteen', ' nineteen');
+    var tens = new Array('', '', ' twenty', ' thirty', ' forty', ' fifty', ' sixty', ' seventy', ' eighty', ' ninety');
+    var hundred = ' hundred';
+    var output = '';
+    var numString = num.toString();
+
+    if (num == 0) {
+        return 'dontAddBigSufix';
+    }
+    //the case of 10, 11, 12 ,13, .... 19 
+    if (num < 20) {
+        output = ones[num];
+        return output;
+    }
+
+    //100 and more
+    if (numString.length == 3) {
+        output = ones[parseInt(numString.charAt(0))] + hundred;
+        output += tens[parseInt(numString.charAt(1))];
+        output += ones[parseInt(numString.charAt(2))];
+        return output;
+    }
+
+    output += tens[parseInt(numString.charAt(0))];
+    output += ones[parseInt(numString.charAt(1))];
+
+    return output;
+}   
+
+  let today = new Date();
+  let date = today.toLocaleDateString().split("/"); 
+  let time = today.toLocaleTimeString();
+  let timeSplit = time.split(":");
+  month = months[date[0]-1],
+  day = date[1],
+  year = date[2],
+  hour = triConvert(timeSplit[0]);
+  minute = triConvert(timeSplit[1]);
+  if(time.includes("AM")) {
+    let daytime = "morning";
+  } else { 
+    daytime = "evening";
+  };
+  return(`Today's date is ${month} ${day}, ${year}. It is${hour}${minute} in the ${daytime}.`);
 };
+
+console.log(announceDate());
 
 // Write tests here:
 

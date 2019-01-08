@@ -19,8 +19,7 @@ You will create an account on the Google Maps API, initialize a Node.js reposito
 - Google Maps has many different tools that JavaScript developers can use. We will be using their Places API, which is meant for situations where we need to query their database of places. We'll need to set up accounts to get API keys which allow us to communicate with this API Key. Since this requires billing, we've set up an account for you: the API KEY is 'AIzaSyBXGSsSDuDecaYMwfAbE54T0VzM5Sm6cbo'
 
 3. Import correct Google API services
-
-- Now that we've set up a Google API key, we need to find the right packages to help connect our code to this API.
+- Now that we've set up a Google API key, we need tonpm  find the right packages to help connect our code to this API.
 - Google Places API does work with raw HTTP requests - fetching data from a certain URL with certain parameters - but this proves difficult and tedious to code. Instead, this would be a good place to use a Node.js package built by someone else.
 - https://github.com/googlemaps/google-maps-services-js is a good package endorsed by Google - follow the directions in its `README.md` to import it into the repository.
 - Remember to add the `--save` flag to the `npm install` command when importing libraries for the first time.

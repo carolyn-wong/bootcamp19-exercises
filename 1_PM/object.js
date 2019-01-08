@@ -4,11 +4,12 @@
 
 const hasFalsyValue = obj => {
   for(let property in obj) {
-    if(property){
-      return !(hasFalsyValue(property));
+    if(obj[property]) {
+      return(hasFalsyValue(property));
+    } else {
+      return true;
     }
   }
-  return property;
 };
 
 obj1 = {
@@ -16,7 +17,7 @@ obj1 = {
   "test2": 1,
   "test3": {
     "test4": true,
-    "test5": 1,
+    "test5": 0,
   },
   "test6": 1,
 }
